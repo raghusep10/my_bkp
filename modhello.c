@@ -1,12 +1,12 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-
-void new_printk(char *ptr)
+//added __init and __exit macro
+static void new_printk(char *ptr)
 {
 	printk("adding new printk func")
 }	
 
-int init_module (void)
+static int __init init_module (void)
 {
         printk("Hello World module init \n");
 	new_printk("new printk");
@@ -14,7 +14,7 @@ int init_module (void)
 
 }
 
-void cleanup_module (void)
+static  void __exit cleanup_module (void)
 {
         printk(" Hello World module exit\n");
 }
