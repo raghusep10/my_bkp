@@ -1,6 +1,6 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-//added __init and __exit macro
+
 static void new_printk(char *ptr)
 {
 	printk("adding new printk func")
